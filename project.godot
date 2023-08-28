@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="FastNoiseLite Tool"
+run/main_scene="res://addons/fastnoiselite_tool/texture_generation.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [rendering]
 
