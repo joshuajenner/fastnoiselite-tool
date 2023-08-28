@@ -2,7 +2,7 @@ extends Control
 
 signal noise_generated(noise: FastNoiseLite)
 
-@onready var file_dialog = %FileDialog
+@onready var file_dialog: FileDialog = %FileDialog
 @onready var message_output: LineEdit = %MessageOutput
 
 @onready var noise_type_input: OptionButton = %NoiseTypeInput
@@ -64,7 +64,6 @@ signal noise_generated(noise: FastNoiseLite)
 	{"input": fractal_weighted_strength_input, "lock": %FractalWeightedStrengthInputLock},
 ]
 
-
 const noise_types: Array = [
 	["Cellular", FastNoiseLite.TYPE_CELLULAR],
 	["Perlin", FastNoiseLite.TYPE_PERLIN],
@@ -109,8 +108,6 @@ var noise: FastNoiseLite
 var noise_resource: NoiseResource
 
 var is_live: bool = false
-var is_mouse_over_noise_display: bool = false
-var is_mouse_pressed: bool = false
 
 
 func _ready():
@@ -121,11 +118,6 @@ func _ready():
 	
 	load_values_from_resource()
 	set_noise_values()
-	
-
-
-func generate_noise() -> void:
-	noise_generated.emit(noise)
 
 func set_noise_values() -> void:
 	noise.noise_type = noise_resource.noise_type
@@ -194,19 +186,12 @@ func add_options_to_input(options: Array, input: OptionButton) -> void:
 
 func _on_generate_button_pressed():
 	set_noise_values()
-	generate_noise()
-
-func _on_noise_display_mouse_entered():
-	is_mouse_over_noise_display = true
-
-func _on_noise_display_mouse_exited():
-	is_mouse_over_noise_display = false
-
+	noise_generated.emit(noise)
 
 func check_if_live() -> void:
 	if is_live:
 		set_noise_values()
-		generate_noise()
+		noise_generated.emit(noise)
 
 
 func _on_live_toggle_toggled(button_pressed):

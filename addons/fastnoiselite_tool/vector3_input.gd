@@ -1,6 +1,7 @@
 class_name Vector3Input
 extends MarginContainer
 
+
 signal value_changed(value: Vector3)
 
 @onready var x_input: SpinBox = %OffsetXInput
@@ -15,7 +16,7 @@ signal value_changed(value: Vector3)
 
 
 func randomize_values() -> void:
-	var rng = RandomNumberGenerator.new()
+	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	x_input.value = rng.randi_range(min_value, max_value)
 	y_input.value = rng.randi_range(min_value, max_value)
