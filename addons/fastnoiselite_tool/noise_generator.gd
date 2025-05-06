@@ -65,12 +65,12 @@ signal noise_generated(noise: FastNoiseLite)
 ]
 
 const noise_types: Array = [
-	["Cellular", FastNoiseLite.TYPE_CELLULAR],
-	["Perlin", FastNoiseLite.TYPE_PERLIN],
 	["Simplex", FastNoiseLite.TYPE_SIMPLEX],
 	["Simplex Smooth", FastNoiseLite.TYPE_SIMPLEX_SMOOTH],
-	["Value", FastNoiseLite.TYPE_VALUE],
-	["Value Cubic", FastNoiseLite.TYPE_VALUE_CUBIC]
+	["Cellular", FastNoiseLite.TYPE_CELLULAR],
+	["Perlin", FastNoiseLite.TYPE_PERLIN],
+	["Value Cubic", FastNoiseLite.TYPE_VALUE_CUBIC],
+	["Value", FastNoiseLite.TYPE_VALUE]
 ]
 const fractal_types: Array = [
 	["None", FastNoiseLite.FRACTAL_NONE],
