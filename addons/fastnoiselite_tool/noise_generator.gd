@@ -95,7 +95,7 @@ const cellular_return_types: Array = [
 ]
 const domain_warp_types: Array = [
 	["Simplex", FastNoiseLite.DOMAIN_WARP_SIMPLEX],
-	["Reduced", FastNoiseLite.DOMAIN_WARP_SIMPLEX_REDUCED],
+	["Simplex Reduced", FastNoiseLite.DOMAIN_WARP_SIMPLEX_REDUCED],
 	["Basic Grid", FastNoiseLite.DOMAIN_WARP_BASIC_GRID],
 ]
 const domain_warp_fractal_types: Array = [
