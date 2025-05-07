@@ -237,8 +237,7 @@ theme_override_constants/margin_top = 5
 [node name="Label" type="Label" parent="Margin/Left/General/MarginContainer/VBoxContainer/NoiseType"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Noise Type:
-"
+text = "Noise Type:"
 
 [node name="HBox" type="HBoxContainer" parent="Margin/Left/General/MarginContainer/VBoxContainer/NoiseType"]
 layout_mode = 2
