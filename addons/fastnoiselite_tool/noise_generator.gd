@@ -65,12 +65,12 @@ signal noise_generated(noise: FastNoiseLite)
 ]
 
 const noise_types: Array = [
-	["Cellular", FastNoiseLite.TYPE_CELLULAR],
-	["Perlin", FastNoiseLite.TYPE_PERLIN],
-	["Simplex", FastNoiseLite.TYPE_SIMPLEX],
-	["Simplex Smooth", FastNoiseLite.TYPE_SIMPLEX_SMOOTH],
 	["Value", FastNoiseLite.TYPE_VALUE],
-	["Value Cubic", FastNoiseLite.TYPE_VALUE_CUBIC]
+	["Value Cubic", FastNoiseLite.TYPE_VALUE_CUBIC],
+	["Perlin", FastNoiseLite.TYPE_PERLIN],
+	["Cellular", FastNoiseLite.TYPE_CELLULAR],
+	["Simplex", FastNoiseLite.TYPE_SIMPLEX],
+	["Simplex Smooth", FastNoiseLite.TYPE_SIMPLEX_SMOOTH]
 ]
 const fractal_types: Array = [
 	["None", FastNoiseLite.FRACTAL_NONE],
@@ -202,7 +202,7 @@ func _on_live_toggle_toggled(button_pressed):
 # ---------- Input Signals
 
 func _on_noise_type_input_item_selected(index):
-	noise_resource.noise_type = index
+	noise_resource.noise_type = noise_type_input.get_item_id(index)
 	check_if_live()
 
 func _on_seed_input_value_changed(value):
@@ -218,11 +218,11 @@ func _on_offset_input_value_changed(value):
 	check_if_live()
 
 func _on_cellular_distance_function_input_item_selected(index):
-	noise_resource.cellular_distance_function = index
+	noise_resource.cellular_distance_function = cellular_distance_function_input.get_item_id(index)
 	check_if_live()
 
 func _on_cellular_return_type_input_item_selected(index):
-	noise_resource.cellular_return_type = index
+	noise_resource.cellular_return_type = cellular_return_type_input.get_item_id(index)
 	check_if_live()
 
 func _on_cellular_jitter_input_value_changed(value):
@@ -230,7 +230,7 @@ func _on_cellular_jitter_input_value_changed(value):
 	check_if_live()
 
 func _on_domain_warp_type_input_item_selected(index):
-	noise_resource.domain_warp_type = index
+	noise_resource.domain_warp_type = domain_warp_type_input.get_item_id(index)
 	check_if_live()
 
 func _on_domain_warp_enabled_input_toggled(button_pressed):
@@ -246,7 +246,7 @@ func _on_domain_warp_frequency_input_value_changed(value):
 	check_if_live()
 
 func _on_domain_warp_fractal_type_input_item_selected(index):
-	noise_resource.domain_warp_fractal_type = index
+	noise_resource.domain_warp_fractal_type = domain_warp_fractal_type_input.get_item_id(index)
 	check_if_live()
 
 func _on_domain_warp_fractal_gain_input_value_changed(value):
@@ -262,7 +262,7 @@ func _on_domain_warp_fractal_octaves_input_value_changed(value):
 	check_if_live()
 
 func _on_fractal_type_input_item_selected(index):
-	noise_resource.fractal_type = index
+	noise_resource.fractal_type = fractal_type_input.get_item_id(index)
 	check_if_live()
 
 func _on_fractal_gain_input_value_changed(value):
